@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="table_text_padding">10dp</dimen>
+    <dimen name="table_title_row_height">38dp</dimen>
+    <dimen name="table_contents_row_height">34dp</dimen>
+
+    <dimen name="table_cell_width_1">110dp</dimen>
+    <dimen name="table_cell_width_2">150dp</dimen>
+
+</resources>

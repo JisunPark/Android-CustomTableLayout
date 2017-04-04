@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Custom Table Layout</string>
+    <string name="confirm">확인</string>
+    <string name="done">완료</string>
+    <string name="cancel">취소</string>
+
+    <string name="price_unit">원</string>
+    <string name="category">분류</string>
+    <string name="amount">판매량</string>
+    <string name="sale">판매</string>
+    <string name="commission">수수료</string>
+    <string name="net_sales_amount">순판매액</string>
+    <string name="date">날짜</string>
+    <string name="shop">판매처</string>
+</resources>
