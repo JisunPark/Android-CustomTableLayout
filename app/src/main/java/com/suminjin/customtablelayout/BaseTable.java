@@ -2,8 +2,10 @@ package com.suminjin.customtablelayout;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.text.Html;
 import android.text.Spanned;
 import android.util.AttributeSet;
@@ -42,14 +44,14 @@ abstract public class BaseTable extends GridLayout {
 
     public BaseTable(Context context, AttributeSet attrs) {
         super(context, attrs);
-        initViews(context);
+        initViews(context, attrs);
     }
 
     public BaseTable(Context context, AttributeSet attrs, int defStyleAttr) {
         this(context, attrs);
     }
 
-    private void initViews(Context context) {
+    private void initViews(Context context, AttributeSet attrs) {
         this.context = context;
         res = context.getResources();
 
@@ -59,8 +61,9 @@ abstract public class BaseTable extends GridLayout {
         p.width = ViewGroup.LayoutParams.WRAP_CONTENT;
         p.height = ViewGroup.LayoutParams.WRAP_CONTENT;
         gridLayout.setLayoutParams(p);
-        gridLayout.setBackgroundColor(Color.rgb(0x88, 0x88, 0x88));
         gridLayout.setPadding(1, 1, 1, 1);
+        gridLayout.setBackgroundColor(Color.rgb(0x33, 0x33, 0x33));
+
     }
 
     public void initTable(int[] titleRedId, int[] width, int[] textAlignment) {
@@ -77,7 +80,6 @@ abstract public class BaseTable extends GridLayout {
             gridLayout.setColumnCount(realColumnCount);
 
             // calculate total width
-
             int titleHeight = tHeight > 0 ? tHeight : res.getDimensionPixelSize(R.dimen.table_title_row_height);
 
             // add title
@@ -86,11 +88,13 @@ abstract public class BaseTable extends GridLayout {
                     // occupied view at vertical divider position
                     View divider = new View(context);
                     GridLayout.LayoutParams dividerP = new GridLayout.LayoutParams();
-                    dividerP.width = 1; // 1px
+                    dividerP.width = 1;
                     dividerP.height = titleHeight;
                     divider.setLayoutParams(dividerP);
-                    divider.setBackgroundResource(R.drawable.table_title_bg);
+                    divider.setBackgroundColor(Color.rgb(0x88, 0x88, 0x88));
                     gridLayout.addView(divider);
+
+                    totalWidth += 1;
                 }
 
                 TextView txtView = new TextView(context);
@@ -150,10 +154,10 @@ abstract public class BaseTable extends GridLayout {
                 // vertical divider
                 View divider = new View(context);
                 LayoutParams dividerP = new LayoutParams();
-                dividerP.width = 2;
+                dividerP.width = 1;
                 dividerP.height = height;
                 divider.setLayoutParams(dividerP);
-                divider.setBackgroundResource(R.color.table_divider);
+                divider.setBackgroundColor(Color.rgb(0x88, 0x88, 0x88));
                 gridLayout.addView(divider);
             }
 
